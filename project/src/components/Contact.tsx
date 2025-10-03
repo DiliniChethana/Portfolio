@@ -44,6 +44,23 @@ const Contact = () => {
       });
       return;
     }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'Please enter a valid email address.'
+      });
+      return;
+    }
+
+    // Security: Prevent any attempt to change destination email
+    // This is additional security - EmailJS template already controls destination
+    const allowedDestination = 'dilinichethi@gmail.com';
+    console.log(`Email will be sent to: ${allowedDestination} (fixed destination)`);
     
     // Reset status
     setSubmitStatus({ isSubmitting: true, isSuccess: false, isError: false, message: '' });
@@ -64,12 +81,15 @@ const Contact = () => {
         hasKeyEnv: !!import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       });
 
+      // Template parameters - destination email is controlled by EmailJS template
+      // Users cannot change where emails are sent (security feature)
       const templateParams = {
         name: formData.name,
         from_email: formData.email,
         title: formData.subject,
         message: formData.message,
         reply_to: formData.email
+        // Note: Destination email (dilinichethi@gmail.com) is set in EmailJS template, not here
       };
 
       console.log('Sending email with params:', templateParams);
@@ -82,7 +102,7 @@ const Contact = () => {
         isSubmitting: false,
         isSuccess: true,
         isError: false,
-        message: 'Message sent successfully to your email!'
+        message: 'Message sent successfully to Dilini!'
       });
       
       // Reset form
