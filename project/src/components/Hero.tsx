@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Download, Code, Palette, Brain, Laptop, TestTube, BookOpen, Database } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Code, Palette, Brain, TestTube, BookOpen, Database } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,6 +11,16 @@ const Hero = () => {
     }, 100);
     return () => clearTimeout(timer);
   }, []);
+
+  const downloadCV = () => {
+    // Create a link element and trigger download
+    const link = document.createElement('a');
+    link.href = '/Dilini_Chethana_CV.pdf'; // Path to your CV file in public folder
+    link.download = 'Dilini_Chethana_CV.pdf'; // Filename for download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
@@ -105,7 +115,10 @@ const Hero = () => {
 
             {/* Action Buttons */}
             <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 transition-all duration-1000 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{animationDelay: '1.5s'}}>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
+              <button 
+                onClick={downloadCV}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
+              >
                 <Download size={20} />
                 <span>Download CV</span>
               </button>
