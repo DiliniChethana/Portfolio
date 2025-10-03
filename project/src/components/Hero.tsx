@@ -134,20 +134,27 @@ const Hero = () => {
             {/* Social Links */}
             <div className={`flex justify-center lg:justify-start space-x-6 transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{animationDelay: '1.8s'}}>
               <a
-                href="#"
+                href="https://github.com/DiliniChethana"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-125 hover:-translate-y-1"
+                title="GitHub Profile"
               >
                 <Github size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/dilini-chethana-603838311/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-125 hover:-translate-y-1"
+                title="LinkedIn Profile"
               >
                 <Linkedin size={24} />
               </a>
               <a
-                href="#"
+                href="mailto:dilinichethi@gmail.com"
                 className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-125 hover:-translate-y-1"
+                title="Send Email"
               >
                 <Mail size={24} />
               </a>

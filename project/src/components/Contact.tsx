@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageSquare } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageSquare, CheckCircle, AlertTriangle, Copy } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,20 @@ const Contact = () => {
     message: ''
   });
 
+  const [submitStatus, setSubmitStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    isError: false,
+    message: ''
+  });
+
+  // Initialize EmailJS
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'O1q7734mCiMhNH2vu';
+    emailjs.init(publicKey);
+    console.log('EmailJS initialized with public key:', publicKey);
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -16,20 +31,139 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    
+    // Validation
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setSubmitStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'Please fill in all fields before sending.'
+      });
+      return;
+    }
+    
+    // Reset status
+    setSubmitStatus({ isSubmitting: true, isSuccess: false, isError: false, message: '' });
+    
+    try {
+      // Initialize EmailJS
+      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'O1q7734mCiMhNH2vu');
+      
+      // EmailJS configuration - using hardcoded values for testing
+      const serviceID = 'service_hwv0j0m'; // Your confirmed service ID
+      const templateID = 'template_hy0a6xt'; // The correct template ID
+      
+      console.log('Using serviceID:', serviceID);
+      console.log('Using templateID:', templateID);
+      console.log('Environment check:', {
+        hasServiceEnv: !!import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        hasTemplateEnv: !!import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        hasKeyEnv: !!import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      });
+
+      const templateParams = {
+        name: formData.name,
+        from_email: formData.email,
+        title: formData.subject,
+        message: formData.message,
+        reply_to: formData.email
+      };
+
+      console.log('Sending email with params:', templateParams);
+      const result = await emailjs.send(serviceID, templateID, templateParams);
+      console.log('Email sent successfully! Result:', result);
+      console.log('EmailJS response status:', result.status);
+      console.log('EmailJS response text:', result.text);
+      
+      setSubmitStatus({
+        isSubmitting: false,
+        isSuccess: true,
+        isError: false,
+        message: 'Message sent successfully to your email!'
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // Reset success message after 8 seconds
+      setTimeout(() => {
+        setSubmitStatus({ isSubmitting: false, isSuccess: false, isError: false, message: '' });
+      }, 8000);
+      
+    } catch (error: any) {
+      console.error('EmailJS Error Details:', error);
+      
+      let errorMessage = 'Failed to send message. ';
+      if (error?.text) {
+        errorMessage += `Error: ${error.text}`;
+      } else if (error?.status) {
+        errorMessage += `Status: ${error.status}`;
+      } else {
+        errorMessage += 'Please check your internet connection and try again.';
+      }
+      
+      setSubmitStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: errorMessage
+      });
+      
+      // Reset error message after 8 seconds
+      setTimeout(() => {
+        setSubmitStatus({ isSubmitting: false, isSuccess: false, isError: false, message: '' });
+      }, 8000);
+    }
+  };
+
+  const copyToClipboard = async () => {
+    const emailContent = `Hello Dilini,
+
+You received a new message from your portfolio website:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+
+---
+This message was sent from your portfolio contact form.
+Please reply directly to: ${formData.email}`;
+
+    try {
+      await navigator.clipboard.writeText(emailContent);
+      setSubmitStatus({
+        isSubmitting: false,
+        isSuccess: true,
+        isError: false,
+        message: 'Message copied to clipboard! You can now paste it in an email to dilinichethi@gmail.com'
+      });
+      
+      setTimeout(() => {
+        setSubmitStatus({ isSubmitting: false, isSuccess: false, isError: false, message: '' });
+      }, 5000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      setSubmitStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'Copy failed. Please manually send your message to: dilinichethi@gmail.com'
+      });
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      value: 'dilini.chethana@email.com',
-      link: 'mailto:dilini.chethana@email.com'
+      value: 'dilinichethi@gmail.com',
+      link: 'mailto:dilinichethi@gmail.com'
     },
     {
       icon: Phone,
@@ -192,13 +326,64 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 font-semibold hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
-              >
-                <Send size={20} />
-                <span>Send Message</span>
-              </button>
+              <div className="space-y-4">
+                <button
+                  type="submit"
+                  disabled={submitStatus.isSubmitting}
+                  className={`w-full px-8 py-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 font-semibold hover:scale-105 hover:shadow-lg ${
+                    submitStatus.isSubmitting 
+                      ? 'bg-gray-600 cursor-not-allowed' 
+                      : submitStatus.isSuccess 
+                      ? 'bg-green-600 hover:bg-green-700 hover:shadow-green-500/25' 
+                      : submitStatus.isError
+                      ? 'bg-red-600 hover:bg-red-700 hover:shadow-red-500/25'
+                      : 'bg-blue-600 hover:bg-blue-700 hover:shadow-blue-500/25'
+                  } text-white`}
+                >
+                  {submitStatus.isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      <span>Sending...</span>
+                    </>
+                  ) : submitStatus.isSuccess ? (
+                    <>
+                      <CheckCircle size={20} />
+                      <span>Sent Successfully!</span>
+                    </>
+                  ) : submitStatus.isError ? (
+                    <>
+                      <AlertTriangle size={20} />
+                      <span>Failed - Try Again</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      <span>Send Message</span>
+                    </>
+                  )}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={copyToClipboard}
+                  disabled={!formData.name || !formData.email || !formData.subject || !formData.message}
+                  className="w-full px-8 py-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 font-semibold hover:scale-105 hover:shadow-lg border-2 border-blue-400 text-blue-400 hover:bg-blue-400/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Copy size={20} />
+                  <span>Copy Message</span>
+                </button>
+              </div>
+
+              {/* Status Message */}
+              {submitStatus.message && (
+                <div className={`p-4 rounded-lg border ${
+                  submitStatus.isSuccess 
+                    ? 'bg-green-600/20 border-green-500/50 text-green-300' 
+                    : 'bg-red-600/20 border-red-500/50 text-red-300'
+                }`}>
+                  <p className="text-sm">{submitStatus.message}</p>
+                </div>
+              )}
             </form>
           </div>
         </div>
