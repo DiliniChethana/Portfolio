@@ -188,14 +188,14 @@ Please reply directly to: ${formData.email}`;
     {
       icon: Phone,
       title: 'Phone',
-      value: '+94 77 123 4567',
-      link: 'tel:+94771234567'
+      value: '+94 75 279 1252',
+      link: 'tel:+94752791252'
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Sabaragamuwa, Sri Lanka',
-      link: '#'
+      value: 'Kandy, Sri Lanka',
+      link: 'https://maps.google.com/?q=Kandy,Sri+Lanka'
     }
   ];
 
@@ -203,19 +203,19 @@ Please reply directly to: ${formData.email}`;
     {
       icon: Github,
       name: 'GitHub',
-      url: '#',
+      url: 'https://github.com/DiliniChethana',
       color: 'hover:text-gray-400'
     },
     {
       icon: Linkedin,
       name: 'LinkedIn',
-      url: '#',
+      url: 'https://www.linkedin.com/in/dilini-chethana-603838311/',
       color: 'hover:text-blue-400'
     },
     {
       icon: MessageSquare,
       name: 'WhatsApp',
-      url: '#',
+      url: 'https://wa.me/94752791252',
       color: 'hover:text-green-400'
     }
   ];
@@ -242,6 +242,8 @@ Please reply directly to: ${formData.email}`;
                 <a
                   key={index}
                   href={info.link}
+                  target={info.title === 'Location' ? '_blank' : '_self'}
+                  rel={info.title === 'Location' ? 'noopener noreferrer' : undefined}
                   className="flex items-center space-x-4 p-4 bg-slate-700/50 rounded-lg hover:bg-slate-700/70 transition-all duration-300 group border border-slate-600/50 hover:border-blue-500/50"
                 >
                   <div className="bg-blue-600/20 p-3 rounded-full group-hover:bg-blue-600/30 transition-colors duration-300">
@@ -263,6 +265,8 @@ Please reply directly to: ${formData.email}`;
                   <a
                     key={index}
                     href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`bg-slate-700/50 p-3 rounded-lg text-gray-400 ${social.color} transition-all duration-300 hover:transform hover:scale-110 border border-slate-600/50 hover:border-blue-500/50`}
                     title={social.name}
                   >
