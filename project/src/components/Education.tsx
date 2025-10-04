@@ -8,39 +8,24 @@ const Education = () => {
     date: string;
     type: string;
     image: string;
+    certificateFile: string;
   }>(null);
   const certificates = [
     {
-      title: 'JavaScript Fundamentals',
-      issuer: 'FreeCodeCamp',
-      date: '2023',
-      type: 'Programming',
-      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      // Replace with: '/certificates/javascript-fundamentals.jpg'
-    },
-    {
-      title: 'React Development',
-      issuer: 'Coursera',
-      date: '2023',
-      type: 'Frontend',
-      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      // Replace with: '/certificates/react-development.jpg'
-    },
-    {
-      title: 'Python for Data Science',
-      issuer: 'DataCamp',
+      title: 'Introduction to Artificial Intelligence',
+      issuer: 'Alison',
       date: '2024',
-      type: 'Data Science',
-      image: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      // Replace with: '/certificates/python-data-science.jpg'
+      type: 'AI/ML',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      certificateFile: '/certificates/Alison_Certificate-7285-46891289.pdf'
     },
     {
-      title: 'UI/UX Design Principles',
-      issuer: 'Adobe',
+      title: 'IT Essentials',
+      issuer: 'Cisco Networking Academy',
       date: '2024',
-      type: 'Design',
-      image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      // Replace with: '/certificates/uiux-design.jpg'
+      type: 'IT Fundamentals',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      certificateFile: '/certificates/IT_Essentials_certificate_dilinichethi2-gmail-com_5da0ce99-c83d-48a8-a71d-47c2280fec72.pdf'
     }
   ];
 
@@ -66,7 +51,42 @@ const Education = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Main Education Card */}
+          {/* School Education Card */}
+          <div className="bg-gradient-to-r from-green-600/20 to-teal-600/20 rounded-2xl p-8 mb-12 border border-green-500/30">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6">
+              <div className="bg-green-600/30 p-4 rounded-full">
+                <GraduationCap className="text-green-400" size={48} />
+              </div>
+              
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  General Certificate of Education (A/L & O/L)
+                </h3>
+                <h4 className="text-xl text-green-400 mb-4">
+                  St. Anthony's Girls' College, Kandy
+                </h4>
+                
+                <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                  <div className="flex items-center text-gray-300">
+                    <Calendar className="mr-2" size={16} />
+                    <span>2007 - 2021</span>
+                  </div>
+                  <div className="flex items-center text-gray-300">
+                    <MapPin className="mr-2" size={16} />
+                    <span>Kandy, Sri Lanka</span>
+                  </div>
+                </div>
+                
+                <p className="text-gray-400 leading-relaxed">
+                  Completed primary and secondary education with a strong foundation in academics. 
+                  Developed essential skills in critical thinking, communication, and problem-solving 
+                  that have been instrumental in my higher education journey.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* University Education Card */}
           <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl p-8 mb-12 border border-blue-500/30">
             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6">
               <div className="bg-blue-600/30 p-4 rounded-full">
@@ -75,7 +95,7 @@ const Education = () => {
               
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  BSc (Hons) in Information Systems
+                  BSc (Hons) in Computing and Information Systems
                 </h3>
                 <h4 className="text-xl text-blue-400 mb-4">
                   Sabaragamuwa University of Sri Lanka
@@ -196,7 +216,7 @@ const Education = () => {
         {/* Certificate Modal */}
         {selectedCertificate && (
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-            <div className="bg-slate-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-auto">
+            <div className="bg-slate-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-auto">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold text-white">{selectedCertificate.title}</h3>
@@ -209,11 +229,14 @@ const Education = () => {
                 </div>
                 
                 <div className="mb-4">
-                  <img
-                    src={selectedCertificate.image}
-                    alt={selectedCertificate.title}
-                    className="w-full rounded-lg"
-                  />
+                  {/* PDF Viewer */}
+                  <div className="w-full h-96 bg-white rounded-lg overflow-hidden">
+                    <iframe
+                      src={selectedCertificate.certificateFile}
+                      className="w-full h-full"
+                      title={selectedCertificate.title}
+                    />
+                  </div>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4 text-sm">

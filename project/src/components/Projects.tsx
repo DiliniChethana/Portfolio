@@ -10,26 +10,87 @@ const Projects = () => {
   }, []);
   const projects = [
     {
-      title: 'SecuVision App',
-      description: 'AI-powered security application with advanced computer vision capabilities for threat detection and monitoring.',
-      technologies: ['AI/ML', 'Python', 'Computer Vision', 'TensorFlow'],
+      id: 1,
+      title: "SecuVision - Advanced Security Monitoring System (Group Project)",
+      description: "A collaborative team project developing a comprehensive security monitoring application with real-time surveillance, intelligent threat detection, and centralized security management. Built with cutting-edge technology through coordinated team development.",
+      technologies: ['AI/ML', 'Python', 'Computer Vision', 'TensorFlow', 'OpenCV'],
       icon: Shield,
       color: 'from-red-500 to-pink-500',
-      features: ['Real-time threat detection', 'AI-powered analytics', 'Security monitoring'],
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/your-username/secuvision-app',
-      liveUrl: '#'
+      features: [
+        'Real-time threat detection using AI',
+        'Advanced computer vision analytics', 
+        'Automated security monitoring',
+        'Alert notification system',
+        'User-friendly dashboard interface'
+      ],
+      image: '/projects/secuvision-logo.jpeg',
+      githubUrl: 'https://github.com/Amhar-code/SecuVision',
+      liveUrl: '#',
+      detailedDescription: `SecuVision is an innovative AI-powered security application developed as a collaborative team project. This comprehensive security monitoring solution leverages advanced computer vision technology to provide real-time threat detection and monitoring capabilities. Through coordinated team development, we built an application that utilizes machine learning algorithms to identify potential security threats in real-time, making it an essential tool for modern security systems.
+
+Key Features:
+• Real-time video analysis and threat detection
+• AI-powered object recognition and classification
+• Automated alert system for suspicious activities
+• Comprehensive security dashboard with analytics
+• Multi-camera support and monitoring
+• Customizable security parameters and settings
+
+Technical Implementation:
+The application is built using Python with TensorFlow and OpenCV for computer vision capabilities. Our team incorporated deep learning models trained on security-related datasets to ensure accurate threat detection while minimizing false positives. This project demonstrates strong collaborative development skills, version control management, and coordinated team programming.
+
+Team Collaboration:
+• Agile development methodology with sprint planning
+• Git workflow with feature branches and code reviews
+• Distributed development with role specialization
+• Coordinated testing and quality assurance processes`
     },
     {
-      title: 'Task Manager',
-      description: 'Comprehensive task management application with intuitive UI and powerful organization features.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express.js'],
+      title: 'Farm Management System SUSL (Group Project)',
+      description: 'A collaborative university project developing a comprehensive farm management system for Sabaragamuwa University of Sri Lanka. Built with Laravel framework featuring advanced agricultural management tools, reporting dashboards, and data analytics.',
+      technologies: ['Laravel', 'PHP', 'Blade', 'JavaScript', 'MySQL', 'Bootstrap', 'CSS'],
       icon: CheckSquare,
       color: 'from-green-500 to-emerald-500',
-      features: ['Task organization', 'Progress tracking', 'Team collaboration'],
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/your-username/task-manager',
-      liveUrl: '#'
+      features: [
+        'Medicine management and reporting',
+        'Dashboard with analytics',
+        'PDF/Word export functionality',
+        'Inventory management system',
+        'User role management',
+        'Comprehensive reporting system'
+      ],
+      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      githubUrl: 'https://github.com/sajithcode/farm-management-system-susl',
+      liveUrl: '#',
+      detailedDescription: `The Farm Management System SUSL is a comprehensive web-based application developed as a collaborative university project for Sabaragamuwa University of Sri Lanka. Built using the Laravel PHP framework, this system modernizes agricultural management through digital solutions, providing farmers and agricultural administrators with powerful tools to optimize their operations.
+
+Key Features:
+• Advanced medicine management with detailed usage tracking
+• Interactive dashboard with comprehensive analytics
+• PDF and Word document export capabilities for reports
+• Real-time inventory tracking and management
+• Multi-user role management system
+• Detailed reporting and data visualization
+• Medicine report generation with usage summaries
+
+Technical Implementation:
+Built using Laravel PHP framework with Blade templating engine for the frontend, MySQL for robust data storage, and Bootstrap for responsive design. The system incorporates modern web development practices and follows MVC architecture patterns for maintainable code structure.
+
+Team Collaboration:
+• 4-member collaborative development team
+• Active GitHub repository with 36+ commits
+• Feature branch development workflow
+• Code review processes and merge requests
+• Distributed development with role specialization
+• University-level project management and coordination
+
+Recent Enhancements:
+• Enhanced medicine report functionality with detailed usage summaries
+• Improved dashboard card rendering and data visualization
+• PDF/Word export features for comprehensive reporting
+• Code refactoring for improved readability and maintainability
+
+This project demonstrates practical application of full-stack web development skills using enterprise-level frameworks, showcasing the ability to work on domain-specific solutions that benefit the agricultural community and university research initiatives.`
     },
     {
       title: 'Library Management System',
@@ -38,7 +99,7 @@ const Projects = () => {
       icon: BookOpen,
       color: 'from-blue-500 to-cyan-500',
       features: ['Book inventory', 'User management', 'Borrowing system'],
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/your-username/library-management-system',
       liveUrl: '#'
     },
@@ -54,26 +115,91 @@ const Projects = () => {
       liveUrl: '#'
     },
     {
-      title: 'Tax Payment Website',
-      description: 'Secure online tax payment portal with user-friendly interface and payment processing integration.',
-      technologies: ['React', 'Node.js', 'Payment Gateway', 'Security'],
+      title: 'Car Rental System',
+      description: 'Comprehensive car rental management system with React frontend and Java backend, featuring vehicle management, booking system, and customer administration.',
+      technologies: ['React', 'JavaScript', 'Java', 'Backend API', 'Database Management'],
       icon: Calculator,
       color: 'from-orange-500 to-red-500',
-      features: ['Secure payments', 'Tax calculations', 'Receipt generation'],
-      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/your-username/tax-payment-website',
-      liveUrl: '#'
+      features: [
+        'Vehicle inventory management',
+        'Customer booking system',
+        'Rental tracking and billing',
+        'User authentication',
+        'Admin dashboard',
+        'Full-stack architecture'
+      ],
+      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      githubUrl: 'https://github.com/DiliniChethana/car-rental-frontend',
+      liveUrl: '#',
+      detailedDescription: `The Car Rental System is a full-stack web application designed to streamline vehicle rental operations. This comprehensive solution features a modern React frontend for user interactions and a robust Java backend for business logic and data management.
+
+Key Features:
+• Complete vehicle inventory management with detailed car information
+• Customer registration and authentication system
+• Comprehensive booking and reservation management
+• Real-time availability tracking and scheduling
+• Automated billing and payment processing
+• Admin dashboard for fleet and customer management
+• Responsive design for desktop and mobile access
+
+Technical Architecture:
+The system follows a client-server architecture with a React-based frontend providing an intuitive user interface and a Java backend handling business logic, data processing, and database operations. The separation of concerns ensures scalability and maintainability.
+
+Frontend Features:
+• Modern React application with component-based architecture
+• Responsive design for optimal user experience
+• Interactive booking interface with real-time availability
+• Customer profile management and booking history
+• Admin interface for system management
+
+Backend Features:
+• Java-based server application with RESTful API design
+• Comprehensive data models for vehicles, customers, and bookings
+• Secure authentication and authorization mechanisms
+• Database integration for persistent data storage
+• Business logic implementation for rental operations
+
+This project demonstrates proficiency in full-stack development, showcasing skills in both frontend and backend technologies, database design, and system architecture planning.`
     },
     {
-      title: 'Fridge AI',
-      description: 'Smart refrigerator management system using AI to track inventory and suggest recipes.',
-      technologies: ['AI/ML', 'IoT', 'React', 'Python'],
+      title: 'Fridge AI (Ongoing Project)',
+      description: 'Currently developing an intelligent refrigerator management system using AI and computer vision technology to track food inventory automatically and provide personalized recipe recommendations based on available ingredients.',
+      technologies: ['AI/ML', 'React', 'Python', 'Computer Vision', 'TensorFlow', 'Node.js'],
       icon: Snowflake,
       color: 'from-cyan-500 to-blue-500',
-      features: ['Inventory tracking', 'Recipe suggestions', 'Smart notifications'],
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      githubUrl: 'https://github.com/your-username/fridge-ai',
-      liveUrl: '#'
+      features: [
+        'AI-powered inventory tracking',
+        'Smart recipe recommendations',
+        'Expiration date monitoring',
+        'Computer vision food recognition',
+        'Mobile app integration',
+        'Smart shopping list generation'
+      ],
+      image: 'https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      githubUrl: '#', // Repository will be available upon completion
+      liveUrl: '#',
+      detailedDescription: `Fridge AI is an innovative ongoing project that aims to transform traditional refrigerator management through artificial intelligence and computer vision. This smart system will automatically track food inventory, monitor expiration dates, and provide intelligent recipe suggestions based on available ingredients.
+
+Key Features in Development:
+• Computer vision-based food recognition and categorization
+• Real-time inventory tracking with automatic updates
+• AI-powered recipe recommendations using available ingredients
+• Smart expiration date monitoring with timely notifications
+• Integration with mobile applications for remote monitoring
+• Automated shopping list generation based on consumption patterns
+• Nutritional analysis and meal planning suggestions
+
+Technical Implementation:
+The system combines computer vision using TensorFlow for food recognition, React-based user interface for seamless interaction, and Python backend for AI processing and data management. Node.js handles API development and real-time data processing.
+
+Project Status:
+Currently in active development phase, focusing on computer vision algorithms for accurate food recognition and building the core AI recommendation engine. This project represents cutting-edge application of AI in everyday life, demonstrating innovation in smart food management technology.
+
+Innovation Goals:
+• Reduce food waste through intelligent monitoring
+• Simplify meal planning with AI-driven suggestions
+• Create seamless integration between AI and user experience
+• Develop scalable AI solutions for smart home applications`
     }
   ];
 
