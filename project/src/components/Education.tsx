@@ -193,7 +193,7 @@ const Education = () => {
               {/* GPA Section */}
               <div className="mt-6 p-4 bg-blue-600/20 rounded-lg border border-blue-500/30">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-1">3.8</div>
+                  <div className="text-3xl font-bold text-blue-400 mb-1">3.56</div>
                   <div className="text-gray-300 text-sm">Current GPA</div>
                 </div>
               </div>
