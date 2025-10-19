@@ -60,7 +60,8 @@ Team Collaboration:
         'User role management',
         'Comprehensive reporting system'
       ],
-      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  image: '/projects/farm.png',
+  imageFit: 'contain',
       githubUrl: 'https://github.com/sajithcode/farm-management-system-susl',
       liveUrl: '#',
       detailedDescription: `The Farm Management System SUSL is a comprehensive web-based application developed as a collaborative university project for Sabaragamuwa University of Sri Lanka. Built using the Laravel PHP framework, this system modernizes agricultural management through digital solutions, providing farmers and agricultural administrators with powerful tools to optimize their operations.
