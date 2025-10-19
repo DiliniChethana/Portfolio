@@ -363,7 +363,8 @@ Technical Highlights:
         'Personalized recommendations',
         'Machine learning implementation'
       ],
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  image: '/projects/music.png',
+  imageFit: 'contain',
       githubUrl: 'https://github.com/DiliniChethana/music-recommndation-AI',
       liveUrl: '#',
       detailedDescription: `The AI Music Recommendation System is an intelligent application that leverages machine learning techniques to provide personalized music recommendations based on lyrical content analysis. This project demonstrates expertise in data science, natural language processing, and web application development using modern Python frameworks.
