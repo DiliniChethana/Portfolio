@@ -216,7 +216,8 @@ This project demonstrates proficiency in full-stack development, showcasing skil
         'Mobile app integration',
         'Smart shopping list generation'
       ],
-      image: 'https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  image: '/projects/fridge.png',
+  imageFit: 'contain',
       githubUrl: '#', // Repository will be available upon completion
       liveUrl: '#',
       detailedDescription: `Fridge AI is an innovative ongoing project that aims to transform traditional refrigerator management through artificial intelligence and computer vision. This smart system will automatically track food inventory, monitor expiration dates, and provide intelligent recipe suggestions based on available ingredients.
