@@ -119,7 +119,8 @@ This project demonstrates practical application of full-stack web development sk
         'Administrative dashboard',
         'Location-based services'
       ],
-      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  image: '/projects/tax.png',
+  imageFit: 'contain',
       githubUrl: 'https://github.com/MSCPerera/Group-Project',
       liveUrl: '#',
       detailedDescription: `The Tax Assessment System for Sri Lanka is a comprehensive web-based application developed as a collaborative group project to modernize the tax payment process. This system provides an online platform for Sri Lankan citizens to identify and pay their assessment taxes digitally, replacing traditional manual processes.
