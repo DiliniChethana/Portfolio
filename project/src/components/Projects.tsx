@@ -23,7 +23,8 @@ const Projects = () => {
         'Alert notification system',
         'User-friendly dashboard interface'
       ],
-      image: '/projects/secuvision-logo.jpeg',
+  image: '/projects/se.png',
+  imageFit: 'contain',
       githubUrl: 'https://github.com/Amhar-code/SecuVision',
       liveUrl: '#',
       detailedDescription: `SecuVision is an innovative AI-powered security application developed as a collaborative team project. This comprehensive security monitoring solution leverages advanced computer vision technology to provide real-time threat detection and monitoring capabilities. Through coordinated team development, we built an application that utilizes machine learning algorithms to identify potential security threats in real-time, making it an essential tool for modern security systems.
@@ -720,11 +721,11 @@ This project demonstrates expertise in mobile application development, governmen
               }}
             >
               {/* Project Image */}
-              <div className="relative overflow-hidden h-48 group-hover:h-52 transition-all duration-300">
+              <div className={`relative overflow-hidden ${project.imageFit === 'contain' ? 'h-64 bg-slate-900 flex items-center justify-center' : 'h-48 group-hover:h-52'} transition-all duration-300`}>
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 filter group-hover:brightness-110"
+                  className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain max-h-full' : 'object-cover group-hover:scale-110'} transition-transform duration-500 filter group-hover:brightness-110`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
                 
