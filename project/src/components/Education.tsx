@@ -16,7 +16,7 @@ const Education = () => {
       issuer: 'Alison',
       date: '2024',
       type: 'AI/ML',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: '/certificates/alison.png',
       certificateFile: '/certificates/Alison_Certificate-7285-46891289.pdf'
     },
     {
@@ -24,7 +24,7 @@ const Education = () => {
       issuer: 'Cisco Networking Academy',
       date: '2024',
       type: 'IT Fundamentals',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: '/certificates/IT essential.png',
       certificateFile: '/certificates/IT_Essentials_certificate_dilinichethi2-gmail-com_5da0ce99-c83d-48a8-a71d-47c2280fec72.pdf'
     }
   ];
