@@ -29,7 +29,7 @@ const Projects = () => {
   imageFit: 'contain',
       githubUrl: 'https://github.com/Amhar-code/SecuVision',
       liveUrl: '#',
-      videoUrl: '', // Add your YouTube video URL here
+      videoUrl: '/videos/secuvision-demo.mp4',
       detailedDescription: `SecuVision is an innovative AI-powered security application developed as a collaborative team project. This comprehensive security monitoring solution leverages advanced computer vision technology to provide real-time threat detection and monitoring capabilities. Through coordinated team development, we built an application that utilizes machine learning algorithms to identify potential security threats in real-time, making it an essential tool for modern security systems.
 
 Key Features:
@@ -67,6 +67,7 @@ Team Collaboration:
   imageFit: 'contain',
       githubUrl: 'https://github.com/sajithcode/farm-management-system-susl',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `The Farm Management System SUSL is a comprehensive web-based application developed as a collaborative university project for Sabaragamuwa University of Sri Lanka. Built using the Laravel PHP framework, this system modernizes agricultural management through digital solutions, providing farmers and agricultural administrators with powerful tools to optimize their operations.
 
 Key Features:
@@ -106,7 +107,8 @@ This project demonstrates practical application of full-stack web development sk
       features: ['Book inventory', 'User management', 'Borrowing system'],
       image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/your-username/library-management-system',
-      liveUrl: '#'
+      liveUrl: '#',
+      videoUrl: '' // Add your YouTube video URL here
     },
     {
       title: 'Tax Assessment System Sri Lanka (Group Project)',
@@ -126,6 +128,7 @@ This project demonstrates practical application of full-stack web development sk
   imageFit: 'contain',
       githubUrl: 'https://github.com/MSCPerera/Group-Project',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `The Tax Assessment System for Sri Lanka is a comprehensive web-based application developed as a collaborative group project to modernize the tax payment process. This system provides an online platform for Sri Lankan citizens to identify and pay their assessment taxes digitally, replacing traditional manual processes.
 
 Key Features:
@@ -175,6 +178,7 @@ Development Components:
       image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/DiliniChethana/car-rental-frontend',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `The Car Rental System is a full-stack web application designed to streamline vehicle rental operations. This comprehensive solution features a modern React frontend for user interactions and a robust Java backend for business logic and data management.
 
 Key Features:
@@ -223,6 +227,7 @@ This project demonstrates proficiency in full-stack development, showcasing skil
   imageFit: 'contain',
       githubUrl: '#', // Repository will be available upon completion
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `Fridge AI is an innovative ongoing project that aims to transform traditional refrigerator management through artificial intelligence and computer vision. This smart system will automatically track food inventory, monitor expiration dates, and provide intelligent recipe suggestions based on available ingredients.
 
 Key Features in Development:
@@ -263,6 +268,7 @@ Innovation Goals:
       image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/BlockAce01/Ceylon-Flavors',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `Ceylon Flavors is an ambitious group project representing Sri Lankan culinary heritage through a comprehensive e-commerce web platform. This large-scale collaborative effort involved 10 team members working together to create a complete online shopping experience focused on Ceylon (Sri Lankan) food products and cuisine.
 
 Key Features:
@@ -314,6 +320,7 @@ This project showcases expertise in large-scale collaborative development, front
       image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: '#', // Add your GitHub repository URL here
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `The Pet Shop Website is a comprehensive frontend web application designed to showcase modern web development skills using core technologies. This project demonstrates proficiency in creating responsive, interactive web interfaces for business applications in the pet care industry.
 
 Key Features:
@@ -370,6 +377,7 @@ Technical Highlights:
   imageFit: 'contain',
       githubUrl: 'https://github.com/DiliniChethana/music-recommndation-AI',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `The AI Music Recommendation System is an intelligent application that leverages machine learning techniques to provide personalized music recommendations based on lyrical content analysis. This project demonstrates expertise in data science, natural language processing, and web application development using modern Python frameworks.
 
 Key Features:
@@ -427,6 +435,7 @@ This project represents a comprehensive application of AI/ML technologies in cre
       image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/DiliniChethana/currency-converter',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `The Currency Converter Application is a comprehensive full-stack web solution designed to provide real-time currency conversion services. This project demonstrates proficiency in both frontend and backend development, API integration, and creating practical financial tools for global users.
 
 Key Features:
@@ -492,6 +501,7 @@ The Currency Converter showcases the ability to create complete web applications
       image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/DiliniChethana/AI-Powered-Virtual-Mouse',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `The AI-Powered Virtual Mouse is an innovative computer vision application that revolutionizes human-computer interaction by enabling hands-free mouse control through advanced AI and gesture recognition technologies. This cutting-edge project demonstrates expertise in computer vision, machine learning, and human-computer interface development.
 
 Key Features:
@@ -565,6 +575,7 @@ Skills Demonstrated:
       image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/DiliniChethana/Twitter_sentiment',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `The Twitter Sentiment Analysis project is a comprehensive machine learning application designed to analyze and classify emotions in Twitter data. This project demonstrates expertise in natural language processing, data science, and social media analytics, providing valuable insights into public opinion and sentiment trends.
 
 Key Features:
@@ -645,6 +656,7 @@ Development Components:
       image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/InduwaraSH/BinGo',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `BinGo is an innovative garbage management system currently in development for the Malimbada Regional Office. This comprehensive mobile application aims to revolutionize waste collection operations through digital transformation, improving efficiency and service delivery for the local community.
 
 Project Overview:

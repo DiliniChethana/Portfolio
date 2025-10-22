@@ -11,6 +11,10 @@ interface VideoModalProps {
 const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl, title }) => {
   if (!isOpen) return null;
 
+  // Check if it's a YouTube URL or local video file
+  const isYouTube = videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be');
+  const isLocalVideo = videoUrl.startsWith('/') || videoUrl.endsWith('.mp4') || videoUrl.endsWith('.webm');
+
   // Extract YouTube video ID if it's a YouTube URL
   const getYouTubeEmbedUrl = (url: string) => {
     if (!url) return '';
@@ -24,11 +28,11 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl, titl
       return `https://www.youtube.com/embed/${videoId}`;
     }
     
-    // If already an embed URL or other video URL, return as is
+    // If already an embed URL, return as is
     return url;
   };
 
-  const embedUrl = getYouTubeEmbedUrl(videoUrl);
+  const embedUrl = isYouTube ? getYouTubeEmbedUrl(videoUrl) : videoUrl;
 
   return (
     <div 
@@ -54,13 +58,23 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl, titl
         {/* Video Container */}
         <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
           {embedUrl ? (
-            <iframe
-              src={embedUrl}
-              title={title}
-              className="absolute top-0 left-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            isLocalVideo ? (
+              <video
+                src={embedUrl}
+                title={title}
+                className="absolute top-0 left-0 w-full h-full"
+                controls
+                autoPlay
+              />
+            ) : (
+              <iframe
+                src={embedUrl}
+                title={title}
+                className="absolute top-0 left-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            )
           ) : (
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-gray-400">
               <p>Video not available</p>
