@@ -33,13 +33,12 @@ const Hero = () => {
                 <img
                   src="/WhatsApp Image 2025-03-25 at 20.42.18_3f941472 copy.jpg"
                   alt="Dilini Chethana"
-                  className="w-full h-full object-cover object-center filter brightness-110 contrast-110 saturate-110 hover:scale-110 transition-all duration-500"
+                  className="w-full h-full object-cover object-center hover:scale-110 transition-all duration-500"
                   loading="eager"
                   fetchPriority="high"
                   style={{ 
-                    imageRendering: 'crisp-edges' as any,
-                    WebkitImageRendering: 'crisp-edges' as any,
-                    imageResolution: 'from-image' as any
+                    imageRendering: 'auto',
+                    imageResolution: 'from-image'
                   } as React.CSSProperties}
                 />
               </div>
