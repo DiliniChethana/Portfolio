@@ -5,11 +5,14 @@ import VideoModal from './VideoModal';
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<{ url: string; title: string } | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
   }, []);
+
+  const categories = ['All', 'AI/ML', 'Full Stack', 'Frontend', 'Backend', 'Mobile'];
   const projects = [
     {
       id: 1,
@@ -18,6 +21,7 @@ const Projects = () => {
       technologies: ['AI/ML', 'Python', 'Computer Vision', 'TensorFlow', 'OpenCV'],
       icon: Shield,
       color: 'from-red-500 to-pink-500',
+      category: 'AI/ML',
       features: [
         'Real-time threat detection using AI',
         'Advanced computer vision analytics', 
@@ -55,6 +59,7 @@ Team Collaboration:
       technologies: ['Laravel', 'PHP', 'Blade', 'JavaScript', 'MySQL', 'Bootstrap', 'CSS'],
       icon: CheckSquare,
       color: 'from-green-500 to-emerald-500',
+      category: 'Full Stack',
       features: [
         'Medicine management and reporting',
         'Dashboard with analytics',
@@ -104,6 +109,7 @@ This project demonstrates practical application of full-stack web development sk
       technologies: ['Java', 'MySQL', 'Swing', 'JDBC'],
       icon: BookOpen,
       color: 'from-blue-500 to-cyan-500',
+      category: 'Backend',
       features: ['Book inventory', 'User management', 'Borrowing system'],
       image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       githubUrl: 'https://github.com/your-username/library-management-system',
@@ -116,6 +122,7 @@ This project demonstrates practical application of full-stack web development sk
       technologies: ['HTML', 'CSS', 'PHP', 'Web Development', 'Database Integration'],
       icon: Brain,
       color: 'from-purple-500 to-violet-500',
+      category: 'Full Stack',
       features: [
         'User registration and authentication',
         'Online tax payment processing',
@@ -167,6 +174,7 @@ Development Components:
       technologies: ['React', 'JavaScript', 'Java', 'Backend API', 'Database Management'],
       icon: Calculator,
       color: 'from-orange-500 to-red-500',
+      category: 'Full Stack',
       features: [
         'Vehicle inventory management',
         'Customer booking system',
@@ -215,6 +223,7 @@ This project demonstrates proficiency in full-stack development, showcasing skil
       technologies: ['AI/ML', 'React', 'Python', 'Computer Vision', 'TensorFlow', 'Node.js'],
       icon: Snowflake,
       color: 'from-cyan-500 to-blue-500',
+      category: 'AI/ML',
       features: [
         'AI-powered inventory tracking',
         'Smart recipe recommendations',
@@ -257,6 +266,7 @@ Innovation Goals:
       technologies: ['HTML', 'CSS', 'JavaScript', 'Web Development', 'E-commerce'],
       icon: Snowflake,
       color: 'from-green-500 to-teal-500',
+      category: 'Frontend',
       features: [
         'Product catalog and browsing',
         'Shopping cart functionality',
@@ -309,6 +319,7 @@ This project showcases expertise in large-scale collaborative development, front
       technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Frontend Development'],
       icon: Brain,
       color: 'from-pink-500 to-rose-500',
+      category: 'Frontend',
       features: [
         'Responsive web design',
         'Pet product catalog',
@@ -365,6 +376,7 @@ Technical Highlights:
       technologies: ['Python', 'Machine Learning', 'TF-IDF', 'Streamlit', 'Jupyter Notebook', 'Data Science'],
       icon: Brain,
       color: 'from-purple-500 to-indigo-500',
+      category: 'AI/ML',
       features: [
         'Lyrics-based content analysis',
         'TF-IDF vectorization',
@@ -424,6 +436,7 @@ This project represents a comprehensive application of AI/ML technologies in cre
       technologies: ['JavaScript', 'HTML', 'CSS', 'Node.js', 'API Integration', 'Full-Stack'],
       icon: Calculator,
       color: 'from-green-500 to-emerald-500',
+      category: 'Full Stack',
       features: [
         'Real-time exchange rates',
         'Multiple currency support',
@@ -490,6 +503,7 @@ The Currency Converter showcases the ability to create complete web applications
       technologies: ['Python', 'Computer Vision', 'AI/ML', 'OpenCV', 'Hand Tracking', 'Gesture Recognition'],
       icon: Brain,
       color: 'from-blue-500 to-purple-500',
+      category: 'AI/ML',
       features: [
         'Hand gesture recognition',
         'Real-time mouse control',
@@ -564,6 +578,7 @@ Skills Demonstrated:
       technologies: ['Python', 'Machine Learning', 'NLP', 'Data Science', 'Pandas', 'Scikit-learn'],
       icon: Brain,
       color: 'from-blue-400 to-cyan-500',
+      category: 'AI/ML',
       features: [
         'Tweet sentiment classification',
         'Natural language processing',
@@ -645,6 +660,7 @@ Development Components:
       technologies: ['Flutter', 'Dart', 'Mobile Development', 'Cross-Platform', 'Government Software'],
       icon: Snowflake,
       color: 'from-green-600 to-emerald-600',
+      category: 'Mobile',
       features: [
         'Garbage collection scheduling',
         'Route optimization for collectors',
@@ -718,6 +734,10 @@ This project demonstrates expertise in mobile application development, governmen
     }
   ];
 
+  const filteredProjects = selectedCategory === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === selectedCategory);
+
   return (
     <section id="projects" className="py-20 bg-slate-900">
       <div className="container mx-auto px-6">
@@ -729,8 +749,25 @@ This project demonstrates expertise in mobile application development, governmen
           </p>
         </div>
 
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                selectedCategory === category
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/50'
+                  : 'bg-slate-800 text-gray-300 hover:bg-slate-700 hover:text-white'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <div
               key={index}
               className={`bg-slate-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-500 group shadow-lg hover:shadow-xl hover:shadow-blue-500/20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
