@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Github, Eye, Shield, CheckSquare, BookOpen, Brain, Calculator, Snowflake } from 'lucide-react';
+import { Github, Shield, CheckSquare, BookOpen, Brain, Calculator, Snowflake, Video } from 'lucide-react';
+import VideoModal from './VideoModal';
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<{ url: string; title: string } | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -27,6 +29,7 @@ const Projects = () => {
   imageFit: 'contain',
       githubUrl: 'https://github.com/Amhar-code/SecuVision',
       liveUrl: '#',
+      videoUrl: '', // Add your YouTube video URL here
       detailedDescription: `SecuVision is an innovative AI-powered security application developed as a collaborative team project. This comprehensive security monitoring solution leverages advanced computer vision technology to provide real-time threat detection and monitoring capabilities. Through coordinated team development, we built an application that utilizes machine learning algorithms to identify potential security threats in real-time, making it an essential tool for modern security systems.
 
 Key Features:
@@ -783,15 +786,15 @@ This project demonstrates expertise in mobile application development, governmen
 
                 {/* Action Buttons */}
                 <div className="flex space-x-3">
-                  <a
-                    href={project.liveUrl}
-                    className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 transform hover:-translate-y-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Eye size={16} />
-                    <span>View Live</span>
-                  </a>
+                  {project.videoUrl && (
+                    <button
+                      onClick={() => setSelectedVideo({ url: project.videoUrl!, title: project.title })}
+                      className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 transform hover:-translate-y-1"
+                    >
+                      <Video size={16} />
+                      <span>Watch Demo</span>
+                    </button>
+                  )}
                   <a
                     href={project.githubUrl}
                     className="flex items-center space-x-2 border border-gray-600 text-gray-300 hover:border-blue-400 hover:text-blue-400 hover:bg-blue-400/10 px-4 py-2 rounded-lg text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1"
@@ -807,6 +810,14 @@ This project demonstrates expertise in mobile application development, governmen
           ))}
         </div>
       </div>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={!!selectedVideo}
+        onClose={() => setSelectedVideo(null)}
+        videoUrl={selectedVideo?.url || ''}
+        title={selectedVideo?.title || ''}
+      />
     </section>
   );
 };
