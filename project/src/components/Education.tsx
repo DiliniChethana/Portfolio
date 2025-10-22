@@ -26,6 +26,22 @@ const Education = () => {
       type: 'IT Fundamentals',
       image: '/certificates/IT essential.png',
       certificateFile: '/certificates/IT_Essentials_certificate_dilinichethi2-gmail-com_5da0ce99-c83d-48a8-a71d-47c2280fec72.pdf'
+    },
+    {
+      title: 'Full Stack Development',
+      issuer: 'Certification Provider',
+      date: '2024',
+      type: 'Web Development',
+      image: '/certificates/Full stack.png',
+      certificateFile: '/certificates/Full stack.pdf'
+    },
+    {
+      title: 'Hugging Face',
+      issuer: 'Hugging Face',
+      date: '2024',
+      type: 'AI/ML',
+      image: '/certificates/hugging face.png',
+      certificateFile: '/certificates/Hugging face.pdf'
     }
   ];
 
